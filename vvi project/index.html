@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Funny Calculator 😂</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0a0a13" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <h1 class="app-title">😂 Funny Calculator</h1>
+      <p class="app-subtitle">Calculation bhi, entertainment bhi!</p>
+      <div class="credits">
+        <p class="credit">Developed by <span>Kaif Ali</span></p>
+        <p class="credit">Idea by <span>Biku Pal</span> 💡</p>
+      </div>
+    </header>
+
+    <section class="calculator" aria-label="Calculator">
+      <div class="display">
+        <div id="expression" class="expression">&nbsp;</div>
+        <div id="result" class="result">0</div>
+        <div id="funny" class="funny">&nbsp;</div>
+      </div>
+
+      <div class="buttons">
+        <button class="btn danger span-2" data-action="clear">C</button>
+        <button class="btn accent" data-action="backspace">⌫</button>
+        <button class="btn accent" data-op="÷">÷</button>
+
+        <button class="btn" data-num="7">7</button>
+        <button class="btn" data-num="8">8</button>
+        <button class="btn" data-num="9">9</button>
+        <button class="btn accent" data-op="×">×</button>
+
+        <button class="btn" data-num="4">4</button>
+        <button class="btn" data-num="5">5</button>
+        <button class="btn" data-num="6">6</button>
+        <button class="btn accent" data-op="−">−</button>
+
+        <button class="btn" data-num="1">1</button>
+        <button class="btn" data-num="2">2</button>
+        <button class="btn" data-num="3">3</button>
+        <button class="btn accent" data-op="+">+</button>
+
+        <button class="btn" data-num="0">0</button>
+        <button class="btn" data-num=".">.</button>
+        <button class="btn fn" data-action="percent">%</button>
+        <button class="btn equals" data-action="equals">=</button>
+      </div>
+    </section>
+
+    <p class="hint">Tip: keyboard se bhi chala sakte ho — 0-9, + − * /, Enter, Backspace, Esc</p>
+  </main>
+
+  <script src="script.js"></script>
+
+  <!-- Offline PWA support (progressive enhancement only).
+       If service workers are unavailable, or the page is opened from the
+       local filesystem (file://), this block simply does nothing and the
+       calculator keeps working exactly as before. -->
+  <script>
+    if ("serviceWorker" in navigator && window.isSecureContext) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("sw.js").catch(function (error) {
+          console.warn("Service worker registration skipped:", error);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
